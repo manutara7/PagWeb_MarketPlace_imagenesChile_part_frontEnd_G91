@@ -1,0 +1,137 @@
+//src/components/Privados/Carrito.jsx
+
+import { useContext } from "react";
+import { UserContext } from "../../context/userContext";
+
+export default function Carrito() {
+  const { carrito, totalPrecio, removeCarrito } = useContext(UserContext);
+
+  const handlePagar = () => {
+    alert("💳 Redirigiendo a pago...\n(Módulo de pago próximamente)");
+  };
+
+  return (
+    <section>
+      <h2>🛒 Mi carrito</h2>
+
+      {carrito.length === 0 && <p>Tu carrito está vacío.</p>}
+
+      {carrito.length > 0 && (
+        <>
+          <div className="posts-grid">
+            {carrito.map((c) => (
+              <article key={c.id} className="post-card position-relative">
+
+                {/* BOTÓN ELIMINAR */}
+                <button
+                  className="btn btn-sm btn-danger position-absolute top-0 end-0 m-2"
+                  onClick={() => removeCarrito(c.id)}
+                >
+                  ❌
+                </button>
+
+                <img src={c.img} alt={c.title} />
+                <h4>{c.title}</h4>
+                <p>${c.price.toLocaleString("es-CL")}</p>
+              </article>
+            ))}
+          </div>
+
+          {/* RESUMEN */}
+          <div className="mt-4 p-3 border rounded shadow-sm bg-light text-end">
+            <h4>
+              Total:{" "}
+              <span className="text-success">
+                ${totalPrecio.toLocaleString("es-CL")}
+              </span>
+            </h4>
+
+            <button
+              className="btn btn-success mt-2 px-4"
+              onClick={handlePagar}
+            >
+              💳 Pagar ahora
+            </button>
+          </div>
+        </>
+      )}
+    </section>
+  );
+}
+
+
+// import { useContext } from "react";
+// import { UserContext } from "../../context/userContext";
+
+// export default function Carrito() {
+//   const { carrito, totalPrecio } = useContext(UserContext);
+
+//   const handlePagar = () => {
+//     alert("💳 Redirigiendo a pago...\n(Módulo de pago próximamente)");
+//   };
+
+//   return (
+//     <section>
+//       <h2>🛒 Mi carrito</h2>
+
+//       {carrito.length === 0 && <p>Tu carrito está vacío.</p>}
+
+//       {carrito.length > 0 && (
+//         <>
+//           <div className="posts-grid">
+//             {carrito.map((c, i) => (
+//               <article key={i} className="post-card">
+//                 <img src={c.img} alt={c.title} />
+//                 <h4>{c.title}</h4>
+//                 <p>${c.price.toLocaleString("es-CL")}</p>
+//               </article>
+//             ))}
+//           </div>
+
+//           {/* RESUMEN */}
+//           <div className="mt-4 p-3 border rounded shadow-sm bg-light text-end">
+//             <h4>Total: <span className="text-success">
+//               ${totalPrecio.toLocaleString("es-CL")}
+//             </span></h4>
+
+//             <button
+//               className="btn btn-success mt-2 px-4"
+//               onClick={handlePagar}
+//             >
+//               💳 Pagar ahora
+//             </button>
+//           </div>
+//         </>
+//       )}
+//     </section>
+//   );
+// }
+
+
+
+// import { useContext } from "react";
+// import { UserContext } from "../../context/userContext";
+
+// export default function Carrito() {
+//   const { carrito } = useContext(UserContext);
+
+//   return (
+//     <section>
+//       <h2>🛒 Mi carrito</h2>
+
+//       {carrito.length === 0 && <p>Tu carrito está vacío.</p>}
+
+//       <div className="posts-grid">
+//         {carrito.map((c, i) => (
+//           <article key={i} className="post-card">
+//             <img src={c.img} />
+//             <h4>{c.title}</h4>
+//             <p>${c.price.toLocaleString("es-CL")}</p>
+//           </article>
+//         ))}
+//       </div>
+//     </section>
+//   );
+// }
+
+
