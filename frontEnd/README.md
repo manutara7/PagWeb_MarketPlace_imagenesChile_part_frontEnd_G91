@@ -144,7 +144,4 @@ Totales automáticos
 
 👨‍💻 Autor 
 Proyecto personal de desarrollo frontend en React.# pagWeb_part_frontend
-# pagWeb_part_frontend
-# pagWeb_part_frontend
-# pagWeb_MarketPlace_imagenesChile_part_frontEnd_G91
-# pagWeb_MarketPlace_imagenesChile_part_frontEnd_G91
+
